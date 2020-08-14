@@ -6,10 +6,22 @@ import javax.persistence.Entity;
 
 @Entity
 public class Person extends PanacheEntity {
-    public String name;
-    public String direccion;
+    public String firstname;
+    public String lastname;
 
-    public static Person findByName(String name){
-        return find("name", name).firstResult();
+    public String getFirstname() {
+        return firstname;
+    }
+
+    public void setFirstname(String firstname) {
+        this.firstname = firstname;
+    }
+
+    public String getLastname() {
+        return lastname;
+    }
+
+    public void setLastname(String lastname) {
+        this.lastname = lastname;
     }
 }
