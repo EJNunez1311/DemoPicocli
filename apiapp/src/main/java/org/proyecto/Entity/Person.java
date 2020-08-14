@@ -1,5 +1,4 @@
-package dev.proyecto.cli.Entity;
-
+package org.proyecto.Entity;
 import io.quarkus.hibernate.orm.panache.PanacheEntity;
 
 import javax.persistence.Entity;
@@ -24,4 +23,5 @@ public class Person extends PanacheEntity {
     public void setLastname(String lastname) {
         this.lastname = lastname;
     }
+
 }
