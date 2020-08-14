@@ -12,6 +12,7 @@ import java.util.List;
 @Produces(MediaType.APPLICATION_JSON)
 @Consumes(MediaType.APPLICATION_JSON)
 public class PersonApi {
+
     @POST
     @Transactional
     public void add(Person person) {
@@ -27,7 +28,7 @@ public class PersonApi {
     @Transactional
     @Path("/{id}")
     public void update(@PathParam("id") long id, Person person){
-        Person.update("Where id = id", Parameters.with("id","%"+id+"%"));
+            Person.update("",Parameters.with("id","%"+id+"%"));
     }
 
     @DELETE
