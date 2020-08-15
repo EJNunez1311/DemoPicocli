@@ -27,4 +27,9 @@ SQL Execute.
 Creacion de Entidad.
 
 
+java -jar target/picocli-demo-1.0-SNAPSHOT-runner.jar
+
+/Users/Zhenming/Downloads/DemoPicocli-master-2
+
+
 
