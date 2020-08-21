@@ -17,7 +17,7 @@ import java.util.Scanner;
         description = "App que hace varias cosas"
 )
 public class DemoApp {
-
+    String path = System.getProperty("user.dir");
 
     public static String menu() {
 
@@ -100,7 +100,7 @@ public class DemoApp {
 
         }while(!sel.equalsIgnoreCase("No"));
 
-
+        String path = System.getProperty("user.dir");
         String archivojava = "package org.proyecto.Entity;\n" +
                 "\n" +
                 "import io.quarkus.hibernate.orm.panache.PanacheEntity;\n" +
@@ -122,7 +122,7 @@ public class DemoApp {
 
 
         try {
-            File myObj = new File("/Users/Zhenming/Downloads/DemoPicocli-master-2/target/" + nom + "/src/main/java/org/proyecto/Entity/"+clase+".java");
+            File myObj = new File(path +"/" + nom + "/src/main/java/org/proyecto/Entity/"+clase+".java");
             if (myObj.createNewFile()) {
                 System.out.println("File created: " + myObj.getName());
             } else {
@@ -134,7 +134,7 @@ public class DemoApp {
         }
 
         try {
-            FileWriter myWriter = new FileWriter("/Users/Zhenming/Downloads/DemoPicocli-master-2/target/" + nom + "/src/main/java/org/proyecto/Entity/"+clase+".java");
+            FileWriter myWriter = new FileWriter(path +"/" + nom + "/src/main/java/org/proyecto/Entity/"+clase+".java");
             myWriter.write(archivojava
             );
             myWriter.close();
@@ -208,7 +208,7 @@ public class DemoApp {
 
 
         try {
-            File myObj = new File("/Users/Zhenming/Downloads/DemoPicocli-master-2/target/" + nom + "/src/main/java/org/proyecto/"+clase+"Api.java");
+            File myObj = new File(path +"/" + nom + "/src/main/java/org/proyecto/"+clase+"Api.java");
             if (myObj.createNewFile()) {
                 System.out.println("File created: " + myObj.getName());
             } else {
@@ -220,7 +220,7 @@ public class DemoApp {
         }
 
         try {
-            FileWriter myWriter = new FileWriter("/Users/Zhenming/Downloads/DemoPicocli-master-2/target/" + nom + "/src/main/java/org/proyecto/"+clase+"Api.java");
+            FileWriter myWriter = new FileWriter(path +"/" + nom + "/src/main/java/org/proyecto/"+clase+"Api.java");
 
             myWriter.write(archivoapi
             );
@@ -259,7 +259,7 @@ public class DemoApp {
                         "}";
 
         try {
-            File myObj = new File("/Users/Zhenming/Downloads/DemoPicocli-master-2/target/" + nom + "/src/main/java/org/proyecto/CustomApplication.java");
+            File myObj = new File(path +"/" + nom + "/src/main/java/org/proyecto/CustomApplication.java");
             if (myObj.createNewFile()) {
                 System.out.println("Archivo Creado: " + myObj.getName());
             } else {
@@ -271,7 +271,7 @@ public class DemoApp {
         }
 
         try {
-            FileWriter myWriter = new FileWriter("/Users/Zhenming/Downloads/DemoPicocli-master-2/target/" + nom + "/src/main/java/org/proyecto/CustomApplication.java");
+            FileWriter myWriter = new FileWriter(path +"/" + nom + "/src/main/java/org/proyecto/CustomApplication.java");
             myWriter.write(custApp
             );
             myWriter.close();
@@ -427,7 +427,7 @@ class test implements Runnable {
         }while(!sel.equalsIgnoreCase("Si"));
 
 
-        String comandos;
+        String comandos, wnds_cm1,wnds_cm2,wnds_cm3,wnds_cm4;
 
         comandos =
                 "mvn io.quarkus:quarkus-maven-plugin:1.6.1.Final:create -DprojectGroupId=org.proyecto " +
@@ -449,22 +449,26 @@ class test implements Runnable {
                 "mvn quarkus:add-extension -Dextensions=\"io.quarkus:quarkus-resteasy-jsonb\"\n" +
                  "\n"+
                 "exit\n";
-
+        wnds_cm1 = "mvn io.quarkus:quarkus-maven-plugin:1.6.1.Final:create -DprojectGroupId=org.proyecto " +
+                "-DprojectArtifactId="+ nombre +
+                " -DclassName=\"org.proyecto.Apiapp\" -Dpath=\"/hello\"\n" + "& \"mvn quarkus:add-extension -Dextensions=\\\"agroal\\\" \\n\"";
 
         //System.out.println(comandos);
 
         ProcessBuilder processBuilder = new ProcessBuilder();
-
     // -- Linux --
 
     // Run a shell command
-        processBuilder.command("bash", "-c", comandos);
+     //   processBuilder.command("bash", "-c", comandos);
 
     // -- Windows --
 
     // Run a command
-    // processBuilder.command("cmd.exe", "/c", comandos);
+    processBuilder.command("cmd.exe", "/c", wnds_cm1);
 
+        String path = System.getProperty("user.dir");
+        String userHome = System.getProperty("user.home");
+        File currentDir = new File(".");
         try {
             Process process = processBuilder.start();
             StringBuilder output = new StringBuilder();
@@ -479,6 +483,8 @@ class test implements Runnable {
                 System.out.println("App creada!");
 //                System.out.println(output);
 //                System.exit(0);
+//                System.out.println("Working Directory = " + path);
+                System.out.println(userHome);
             } else {
                 //abnormal...
             }
@@ -493,7 +499,7 @@ class test implements Runnable {
         do{
 
             try {
-                File myObj = new File("/Users/Zhenming/Downloads/DemoPicocli-master-2/target/"+nombre+"/src/main/resources/application.properties");
+                File myObj = new File(path+"/"+nombre+"/src/main/resources/application.properties");
                 if (myObj.createNewFile()) {
                     System.out.println("Archivo Creado: " + myObj.getName());
                 } else {
@@ -505,7 +511,7 @@ class test implements Runnable {
             }
 
             try {
-                FileWriter myWriter = new FileWriter("/Users/Zhenming/Downloads/DemoPicocli-master-2/target/"+ nombre +"/src/main/resources/application.properties");
+                FileWriter myWriter = new FileWriter(path+"/"+ nombre +"/src/main/resources/application.properties");
                 myWriter.write(
                         "#Datasource Config\n" +
                         "quarkus.datasource.db-kind=mysql\n" +
@@ -537,9 +543,9 @@ class test implements Runnable {
 
                 try {
 
-                    File theDir = new File("/Users/Zhenming/Downloads/DemoPicocli-master-2/target/" + nombre + "/src/main/java/org/proyecto/Entity/");
+                    File theDir = new File(path+"/" + nombre + "/src/main/java/org/proyecto/Entity/");
                     if (!theDir.exists()) theDir.mkdirs();
-                    File myObj = new File("/Users/Zhenming/Downloads/DemoPicocli-master-2/target/" + nombre + "/src/main/java/org/proyecto/Entity/Usuario.java");
+                    File myObj = new File(path+"/" + nombre + "/src/main/java/org/proyecto/Entity/Usuario.java");
                     if (myObj.createNewFile()) {
                         System.out.println("Archivo Creado: " + myObj.getName());
                     } else {
@@ -552,9 +558,9 @@ class test implements Runnable {
 
                 try {
 
-                    File theDir = new File("/Users/Zhenming/Downloads/DemoPicocli-master-2/target/" + nombre + "/src/main/java/org/proyecto/Entity/");
+                    File theDir = new File(path+"/" + nombre + "/src/main/java/org/proyecto/Entity/");
                     if (!theDir.exists()) theDir.mkdirs();
-                    FileWriter myWriter = new FileWriter("/Users/Zhenming/Downloads/DemoPicocli-master-2/target/" + nombre + "/src/main/java/org/proyecto/Entity/Usuario.java");
+                    FileWriter myWriter = new FileWriter(path+"/" + nombre + "/src/main/java/org/proyecto/Entity/Usuario.java");
                     myWriter.write("" +
                             "package org.proyecto.Entity;\n" +
                             "\n" +
@@ -611,7 +617,7 @@ class test implements Runnable {
                 }
 
                 try {
-                    File myObj = new File("/Users/Zhenming/Downloads/DemoPicocli-master-2/target/" + nombre + "/src/main/java/org/proyecto/UsuarioApi.java");
+                    File myObj = new File(path+"/" + nombre + "/src/main/java/org/proyecto/UsuarioApi.java");
                     if (myObj.createNewFile()) {
                         System.out.println("Archivo Creado: " + myObj.getName());
                     } else {
@@ -624,9 +630,9 @@ class test implements Runnable {
 
                 try {
 
-                    File theDir = new File("/Users/Zhenming/Downloads/DemoPicocli-master-2/target/" + nombre + "/src/main/java/org/proyecto/Entity/");
+                    File theDir = new File(path+"/" + nombre + "/src/main/java/org/proyecto/Entity/");
                     if (!theDir.exists()) theDir.mkdirs();
-                    FileWriter myWriter = new FileWriter("/Users/Zhenming/Downloads/DemoPicocli-master-2/target/" + nombre + "/src/main/java/org/proyecto/UsuarioApi.java");
+                    FileWriter myWriter = new FileWriter(path+"/" + nombre + "/src/main/java/org/proyecto/UsuarioApi.java");
                     myWriter.write(
                             "package org.proyecto;\n" +
                                     "\n" +
@@ -712,7 +718,7 @@ class test implements Runnable {
                 System.out.println("Proyecto creado con opcion 2");
 
 
-                File theDir = new File("/Users/Zhenming/Downloads/DemoPicocli-master-2/target/" + nombre + "/src/main/java/org/proyecto/Entity/");
+                File theDir = new File(path+"/" + nombre + "/src/main/java/org/proyecto/Entity/");
                 if (!theDir.exists()) theDir.mkdirs();
                 do {
                     System.out.println("\n\nCreacion de modelo\n\n");
@@ -733,10 +739,10 @@ class test implements Runnable {
 
 //      mueve el trabajo realizado de target a la carpeta principal
 
-        File theDir = new File("/Users/Zhenming/Downloads/DemoPicocli-master-2/"+nombre);
+        File theDir = new File(userHome+"/Documents/DemoPicocli/"+nombre);
         if (!theDir.exists()) theDir.mkdirs();
-        File from = new File("/Users/Zhenming/Downloads/DemoPicocli-master-2/target/" + nombre);
-        File to = new File("/Users/Zhenming/Downloads/DemoPicocli-master-2/"+nombre);
+        File from = new File(path+"/" + nombre);
+        File to = new File(userHome+"/Documents/DemoPicocli/"+nombre);
 
         try {
             Files.move(from.toPath(), to.toPath(), StandardCopyOption.REPLACE_EXISTING);
