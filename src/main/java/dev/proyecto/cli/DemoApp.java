@@ -26,8 +26,8 @@ public class DemoApp {
 
         /***************************************************/
 
-        System.out.println("Que tipo de aplicacion desea hacer?");
-        System.out.println("1 - Api-server con modelo usuario autenticacion");
+        System.out.println("Que tipo de aplicacion desea utlizar?");
+        System.out.println("1 - Api-server con modelo usuario de autenticacion");
         System.out.println("2 - Api-server sin ningun tipo de configuracion");
         System.out.println("Salir");
         selection = input.nextLine();
@@ -124,12 +124,12 @@ public class DemoApp {
         try {
             File myObj = new File(path +"/" + nom + "/src/main/java/org/proyecto/Entity/"+clase+".java");
             if (myObj.createNewFile()) {
-                System.out.println("File created: " + myObj.getName());
+             //   System.out.println("File created: " + myObj.getName());
             } else {
-                System.out.println("Archivo ya existe.");
+              //  System.out.println("Archivo ya existe.");
             }
         } catch (IOException e) {
-            System.out.println("An error occurred.");
+            System.out.println("Se produjo un error.");
             e.printStackTrace();
         }
 
@@ -138,9 +138,9 @@ public class DemoApp {
             myWriter.write(archivojava
             );
             myWriter.close();
-            System.out.println("Modelo generado");
+          //  System.out.println("Modelo generado");
         } catch (IOException e) {
-            System.out.println("An error occurred.");
+            System.out.println("Se produjo un error.");
             e.printStackTrace();
         }
 
@@ -182,7 +182,7 @@ public class DemoApp {
                 "    @Path(\"/{id}\")\n" +
                 "    public "+clase+" update(@PathParam(\"id\") long id, " + clase + " " + claseminus+"){\n" +
                 "        if ("+claseminus+".findById(id) == null) {\n" +
-                "            throw new WebApplicationException(\"Id no fue enviado en la petición.\", 422);\n" +
+                "            throw new WebApplicationException(\"Id no fue enviado en la peticion.\", 422);\n" +
                 "        }\n" +
                 "\n" +
                 "        "+clase+" entity = entityManager.find("+clase+".class,id);\n" +
@@ -210,12 +210,12 @@ public class DemoApp {
         try {
             File myObj = new File(path +"/" + nom + "/src/main/java/org/proyecto/"+clase+"Api.java");
             if (myObj.createNewFile()) {
-                System.out.println("File created: " + myObj.getName());
+               // System.out.println("File created: " + myObj.getName());
             } else {
-                System.out.println("Archivo ya existe.");
+              //  System.out.println("Archivo ya existe.");
             }
         } catch (IOException e) {
-            System.out.println("An error occurred.");
+            System.out.println("Se produjo un error.");
             e.printStackTrace();
         }
 
@@ -225,9 +225,9 @@ public class DemoApp {
             myWriter.write(archivoapi
             );
             myWriter.close();
-            System.out.println("Clase api generado");
+         //   System.out.println("Clase api generado");
         } catch (IOException e) {
-            System.out.println("An error occurred.");
+            System.out.println("Se produjo un error.");
             e.printStackTrace();
         }
 
@@ -253,7 +253,7 @@ public class DemoApp {
                         "                        url = \"http://pucmm.edu.do/\",\n" +
                         "                        email = \"pucmmisc@example.com\"),\n" +
                         "                license = @License(\n" +
-                        "                        name = \"Proyecto Final 1.0©\",\n" +
+                        "                        name = \"Proyecto Final 1.0\",\n" +
                         "                        url = \"http://www.apache.org/licenses/LICENSE-2.0.html\")))\n" +
                         "public class CustomApplication extends Application {\n" +
                         "}";
@@ -261,12 +261,12 @@ public class DemoApp {
         try {
             File myObj = new File(path +"/" + nom + "/src/main/java/org/proyecto/CustomApplication.java");
             if (myObj.createNewFile()) {
-                System.out.println("Archivo Creado: " + myObj.getName());
+             //   System.out.println("Archivo Creado: " + myObj.getName());
             } else {
-                System.out.println("Archivo ya existe.");
+               // System.out.println("Archivo ya existe.");
             }
         } catch (IOException e) {
-            System.out.println("An error occurred.");
+            System.out.println("Se produjo un error.");
             e.printStackTrace();
         }
 
@@ -275,9 +275,9 @@ public class DemoApp {
             myWriter.write(custApp
             );
             myWriter.close();
-            System.out.println("ApiSwagger Inyectado");
+          //  System.out.println("ApiSwagger Inyectado");
         } catch (IOException e) {
-            System.out.println("An error occurred.");
+            System.out.println("Se produjo un error.");
             e.printStackTrace();
         }
 
@@ -320,7 +320,8 @@ class Comando1 implements Runnable {
         System.out.println("Mi primer comando [" + nombre + "] sistema [" + sistema + "] Path ["
                 + archivo.toPath() + "]");
 
-        System.out.println("Nombre de la app: " + nombre + "\nConfirmar(Si/No)");
+//        System.out.println("Nombre de la app: " + nombre + "\nConfirmar(Si/No)");
+//        System.out.println("\nConfirmar(Si/No)");
         sel = input.next();
 
 //        do{
@@ -371,12 +372,12 @@ class Comando2 implements Runnable {
         try {
             File myObj = new File("./src/main/java/dev/proyecto/cli/Entity/"+nombre+".java");
             if (myObj.createNewFile()) {
-                System.out.println("Archivo Creado: " + myObj.getName());
+               // System.out.println("Archivo Creado: " + myObj.getName());
             } else {
-                System.out.println("Archivo ya existe.");
+                //System.out.println("Archivo ya existe.");
             }
         } catch (IOException e) {
-            System.out.println("An error occurred.");
+            System.out.println("Se produjo un error.");
             e.printStackTrace();
         }
 
@@ -394,9 +395,9 @@ class Comando2 implements Runnable {
                             "\n"
             );
             myWriter.close();
-            System.out.println("Successfully wrote to the file.");
+           // System.out.println("Successfully wrote to the file.");
         } catch (IOException e) {
-            System.out.println("An error occurred.");
+            System.out.println("Se produjo un error.");
             e.printStackTrace();
         }
 
@@ -425,37 +426,39 @@ class test implements Runnable {
             System.out.println("Nombre de la app: " + nombre + "\nConfirmar(Si/No)");
             sel = input.nextLine();
         }while(!sel.equalsIgnoreCase("Si"));
-
-
-        String comandos, wnds_cm1,wnds_cm2,wnds_cm3,wnds_cm4;
-
+        System.out.println("Espere un momento...");
+        String path = System.getProperty("user.dir");
+        String userHome = System.getProperty("user.home");
+        String comandos, archivo_comando;
         comandos =
                 "mvn io.quarkus:quarkus-maven-plugin:1.6.1.Final:create -DprojectGroupId=org.proyecto " +
                 "-DprojectArtifactId="+ nombre +
-                " -DclassName=\"org.proyecto.Apiapp\" -Dpath=\"/hello\"\n" +
+                " -DclassName=\"org.proyecto.Apiapp\" -Dpath=\"/hello\"\n";
+//        comando2= "cd "+ nombre + "\n";
+//        comando3 = "mvn quarkus:add-extension -Dextensions=\"agroal\"";
+//        comando4 = "mvn quarkus:add-extension -Dextensions=\"quarkus-hibernate-orm-panache\" \n";
+//        comando5="mvn quarkus:add-extension -Dextensions=\"jdbc-mysql\" \n";
+//        comando6="mvn quarkus:add-extension -Dextensions=\"io.quarkus:quarkus-smallrye-openapi\"\n";
+//        comando7="mvn quarkus:add-extension -Dextensions=\"io.quarkus:quarkus-spring-security\"\n";
+//        comando8="mvn quarkus:add-extension -Dextensions=\"io.quarkus:quarkus-resteasy-jsonb\"\n";
+
+
+        archivo_comando = "cd "+path+"\\"+nombre+"\n" +
                 "\n" +
-                "cd "+ nombre +
+                "call mvn quarkus:add-extension -Dextensions=\"io.quarkus:quarkus-agroal\"\n" +
                 "\n" +
-                "mvn quarkus:add-extension -Dextensions=\"agroal\" \n" +
+                "call mvn quarkus:add-extension -Dextensions=\"io.quarkus:quarkus-hibernate-orm-panache\"\n" +
                 "\n" +
-                "mvn quarkus:add-extension -Dextensions=\"quarkus-hibernate-orm-panache\" \n" +
+                "call mvn quarkus:add-extension -Dextensions=\"io.quarkus:quarkus-jdbc-mysql\"\n" +
                 "\n" +
-                "mvn quarkus:add-extension -Dextensions=\"jdbc-mysql\" \n" +
-                "\n"+
-                "mvn quarkus:add-extension -Dextensions=\"io.quarkus:quarkus-smallrye-openapi\"\n" +
+                "call mvn quarkus:add-extension -Dextensions=\"io.quarkus:quarkus-smallrye-openapi\"\n" +
                 "\n" +
-                "mvn quarkus:add-extension -Dextensions=\"io.quarkus:quarkus-spring-security\"\n" +
-                "\n"+
-                "mvn quarkus:add-extension -Dextensions=\"io.quarkus:quarkus-resteasy-jsonb\"\n" +
-                 "\n"+
-                "exit\n";
-        wnds_cm1 = "mvn io.quarkus:quarkus-maven-plugin:1.6.1.Final:create -DprojectGroupId=org.proyecto " +
-                "-DprojectArtifactId="+ nombre +
-                " -DclassName=\"org.proyecto.Apiapp\" -Dpath=\"/hello\"\n" + "& \"mvn quarkus:add-extension -Dextensions=\\\"agroal\\\" \\n\"";
+                "call mvn quarkus:add-extension -Dextensions=\"io.quarkus:quarkus-resteasy-jsonb\"";
 
         //System.out.println(comandos);
 
         ProcessBuilder processBuilder = new ProcessBuilder();
+        ProcessBuilder processBuilder2 = new ProcessBuilder();
     // -- Linux --
 
     // Run a shell command
@@ -464,11 +467,11 @@ class test implements Runnable {
     // -- Windows --
 
     // Run a command
-    processBuilder.command("cmd.exe", "/c", wnds_cm1);
+    processBuilder.command("cmd.exe", "/c", comandos);
 
-        String path = System.getProperty("user.dir");
-        String userHome = System.getProperty("user.home");
-        File currentDir = new File(".");
+
+
+//        File currentDir = new File(".");
         try {
             Process process = processBuilder.start();
             StringBuilder output = new StringBuilder();
@@ -480,11 +483,12 @@ class test implements Runnable {
 
             int exitVal = process.waitFor();
             if (exitVal == 0) {
-                System.out.println("App creada!");
+//                System.out.println("App creada!");
+//                System.out.println(archivo_comando);
 //                System.out.println(output);
 //                System.exit(0);
 //                System.out.println("Working Directory = " + path);
-                System.out.println(userHome);
+//                System.out.println(userHome);
             } else {
                 //abnormal...
             }
@@ -495,18 +499,69 @@ class test implements Runnable {
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
+        ///////////////////////////////////////////////////////////////////////////////////////////
+        try {
+            File myObj = new File(path+"/comando_add.bat");
+            if (myObj.createNewFile()) {
+//                System.out.println("Archivo Creado: " + myObj.getName());
+            } else {
+//                System.out.println("Archivo ya existe.");
+            }
+        } catch (IOException e) {
+            System.out.println("Se produjo un error.");
+            e.printStackTrace();
+        }
+
+        try {
+            FileWriter myWriter = new FileWriter(path+"/comando_add.bat");
+            myWriter.write(archivo_comando);
+            myWriter.close();
+          //  System.out.println("Archivo bat creado.");
+        } catch (IOException e) {
+            System.out.println("Se produjo un error.");
+            e.printStackTrace();
+        }
+        processBuilder2.command("cmd.exe", "/c", "comando_add.bat");
+        try {
+            Process process2 = processBuilder2.start();
+            StringBuilder output = new StringBuilder();
+            BufferedReader reader = new BufferedReader(new InputStreamReader(process2.getInputStream()));
+            String line;
+            while ((line = reader.readLine()) != null) {
+                output.append(line + "\n");
+            }
+
+            int exitVal = process2.waitFor();
+            if (exitVal == 0) {
+              //  System.out.println("Archivo Bat ejecutado");
+//                System.out.println(archivo_comando);
+//                System.out.println(output);
+//                System.exit(0);
+//                System.out.println("Working Directory = " + path);
+//                System.out.println(userHome);
+            } else {
+                //abnormal...
+            }
+            process2.destroyForcibly();
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+        ///////////////////////////////////////////////////////////////////////////////////////////
 
         do{
 
             try {
                 File myObj = new File(path+"/"+nombre+"/src/main/resources/application.properties");
                 if (myObj.createNewFile()) {
-                    System.out.println("Archivo Creado: " + myObj.getName());
+                  //  System.out.println("Archivo Creado: " + myObj.getName());
                 } else {
-                    System.out.println("Archivo ya existe.");
+                 //   System.out.println("Archivo ya existe.");
                 }
             } catch (IOException e) {
-                System.out.println("An error occurred.");
+                System.out.println("Se produjo un error.");
                 e.printStackTrace();
             }
 
@@ -528,18 +583,18 @@ class test implements Runnable {
                         "mp.openapi.extensions.smallrye.operationIdStrategy=METHOD"
                 );
                 myWriter.close();
-                System.out.println("Successfully wrote to the file.");
+              //  System.out.println("Successfully wrote to the file.");
             } catch (IOException e) {
-                System.out.println("An error occurred.");
+                System.out.println("Se produjo un error.");
                 e.printStackTrace();
             }
 
 
             sel = dem.menu();
-            System.out.println("Su seleccion es: "+ sel);
+           // System.out.println("Su seleccion es: "+ sel);
 
             if(sel.equalsIgnoreCase("1")) {
-                System.out.println("Proyecto creado con opcion 1");
+             //   System.out.println("Proyecto creado con opcion 1");
 
                 try {
 
@@ -547,12 +602,12 @@ class test implements Runnable {
                     if (!theDir.exists()) theDir.mkdirs();
                     File myObj = new File(path+"/" + nombre + "/src/main/java/org/proyecto/Entity/Usuario.java");
                     if (myObj.createNewFile()) {
-                        System.out.println("Archivo Creado: " + myObj.getName());
+                        //System.out.println("Archivo Creado: " + myObj.getName());
                     } else {
-                        System.out.println("Archivo ya existe.");
+                       // System.out.println("Archivo ya existe.");
                     }
                 } catch (IOException e) {
-                    System.out.println("An error occurred.");
+                    System.out.println("Se produjo un error.");
                     e.printStackTrace();
                 }
 
@@ -610,21 +665,21 @@ class test implements Runnable {
 
                     );
                     myWriter.close();
-                    System.out.println("Successfully wrote to the file.");
+                   // System.out.println("Successfully wrote to the file.");
                 } catch (IOException e) {
-                    System.out.println("An error occurred.");
+                    System.out.println("Se produjo un error.");
                     e.printStackTrace();
                 }
 
                 try {
                     File myObj = new File(path+"/" + nombre + "/src/main/java/org/proyecto/UsuarioApi.java");
                     if (myObj.createNewFile()) {
-                        System.out.println("Archivo Creado: " + myObj.getName());
+                      //  System.out.println("Archivo Creado: " + myObj.getName());
                     } else {
-                        System.out.println("Archivo ya existe.");
+                     //   System.out.println("Archivo ya existe.");
                     }
                 } catch (IOException e) {
-                    System.out.println("An error occurred.");
+                    System.out.println("Se produjo un error.");
                     e.printStackTrace();
                 }
 
@@ -669,7 +724,7 @@ class test implements Runnable {
                                     "    @Path(\"/{id}\")\n" +
                                     "    public Usuario update(@PathParam(\"id\") long id, Usuario usuario){\n" +
                                     "        if (usuario.findById(id) == null) {\n" +
-                                    "            throw new WebApplicationException(\"Id no fue enviado en la petición.\", 422);\n" +
+                                    "            throw new WebApplicationException(\"Id no fue enviado en la peticion.\", 422);\n" +
                                     "        }\n" +
                                     "\n" +
                                     "        Usuario entity = entityManager.find(Usuario.class,id);\n" +
@@ -695,14 +750,14 @@ class test implements Runnable {
 
                     );
                     myWriter.close();
-                    System.out.println("Successfully wrote to the file.");
+                  //  System.out.println("Successfully wrote to the file.");
                 } catch (IOException e) {
-                    System.out.println("An error occurred.");
+                    System.out.println("Se produjo un error.");
                     e.printStackTrace();
                 }
 
                 do {
-                    System.out.println("\n\nCreacion de modelo\n\n");
+                    System.out.println("\n\n****Creacion de modelo****\n\n");
                     dem.modelaje(nombre);
                     System.out.println("Desea agregar otro modelo? (Si/No)");
                     sel = input.nextLine();
@@ -715,13 +770,13 @@ class test implements Runnable {
             }
 
             if(sel.equalsIgnoreCase("2")){
-                System.out.println("Proyecto creado con opcion 2");
+                //System.out.println("Proyecto creado con opcion 2");
 
 
                 File theDir = new File(path+"/" + nombre + "/src/main/java/org/proyecto/Entity/");
                 if (!theDir.exists()) theDir.mkdirs();
                 do {
-                    System.out.println("\n\nCreacion de modelo\n\n");
+                    System.out.println("\n\n****Creacion de modelo****\n\n");
                     dem.modelaje(nombre);
                     System.out.println("Desea agregar otro modelo? (Si/No)");
                     sel = input.nextLine();
@@ -746,7 +801,7 @@ class test implements Runnable {
 
         try {
             Files.move(from.toPath(), to.toPath(), StandardCopyOption.REPLACE_EXISTING);
-            System.out.println("Api creada con exito.");
+            System.out.println("Aplicacion creada con exito.");
         } catch (IOException ex) {
             ex.printStackTrace();
         }

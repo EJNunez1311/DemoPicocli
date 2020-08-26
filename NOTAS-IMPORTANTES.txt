@@ -1,0 +1,15 @@
+//Ejecuta ese comando primero
+call mvn io.quarkus:quarkus-maven-plugin:1.7.0.Final:create -DprojectGroupId=org.acme -DprojectArtifactId=getting-started -DclassName="org.acme.getting.started.GreetingResource" -Dpath="/hello"
+
+
+//Otro archivo donde se encuentre el pon.xml Ejecuta los comandos restantes
+
+call mvn quarkus:add-extension -Dextensions="io.quarkus:quarkus-agroal"
+
+call mvn quarkus:add-extension -Dextensions="io.quarkus:quarkus-hibernate-orm-panache"
+
+call mvn quarkus:add-extension -Dextensions="io.quarkus:quarkus-jdbc-mysql"
+
+call mvn quarkus:add-extension -Dextensions="io.quarkus:quarkus-smallrye-openapi"
+
+call mvn quarkus:add-extension -Dextensions="io.quarkus:quarkus-resteasy-jsonb"
